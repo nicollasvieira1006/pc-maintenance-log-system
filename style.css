@@ -1,0 +1,150 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Corpo ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f0f4f7, #d9e2ec);
+    color: #2a2929;
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+/* ===== Títulos ===== */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+/* ===== Formulário ===== */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #030eac;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #342e8b;
+    box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
+    outline: none;
+}
+
+button {
+    background-color: #1313e8;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3100f3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Tabela ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    animation: fadeIn 1s ease;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+th {
+    background-color: #0b2c87;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #d0e6d5;
+    transform: scale(1.01);
+}
+
+/* ===== Botão excluir ===== */
+button[onclick] {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button[onclick]:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+/* ===== Animações CSS ===== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== Animação registros ===== */
+.record-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.record-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+
+.record-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.record-exit-active {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.highlight {
+    animation: highlightAnim 1s ease;
+}
+
+@keyframes highlightAnim {
+    0% { background-color: #fefe74; }
+    100% { background-color: transparent; }
+}
