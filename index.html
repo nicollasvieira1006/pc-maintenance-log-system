@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Maintenance Log System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>PC Maintenance Log System</h1>
 
+    <form id="form">
+        <input type="text" id="computer" placeholder="Nome do computador" required>
+        <input type="text" id="service" placeholder="Serviço realizado" required>
+        <input type="date" id="date" required>
+        <select id="status" required>
+            <option value="">Selecione o status</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+        </select>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Registros</h2>
+    <table id="records">
+        <thead>
+            <tr>
+                <th>Computador</th>
+                <th>Serviço</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Registros aparecerão aqui -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
