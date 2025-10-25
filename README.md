@@ -52,7 +52,7 @@ Demonstrar habilidades em:
 ## 📸 Screenshots (Exemplo)
 
 **Tela principal com formulário e tabela de registros:**  
-![Exemplo de tela principal](https://via.placeholder.com/600x400.png?text=Exemplo+de+Tela+Principal)
+
 
 ---
 
@@ -60,4 +60,5 @@ Demonstrar habilidades em:
 
 1. Clone o repositório:  
 ```bash
-git clone https://github.com/seu-usuario/pc-maintenance-log-system.git
+git clone 
+
