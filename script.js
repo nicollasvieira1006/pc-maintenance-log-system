@@ -1,45 +1,41 @@
-
 const form = document.getElementById("os-form");
 const ordersList = document.getElementById("orders-list");
 const searchInput = document.getElementById("search");
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+const STORAGE_KEY = "orders";
 
+// 🔥 Carrega do localStorage com fallback seguro
+let orders = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+// 💾 Salvar no localStorage
 function saveOrders() {
-  localStorage.setItem(
-    "orders",
-    JSON.stringify(orders)
-  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
 }
 
+// 📊 Atualiza dashboard
 function updateDashboard() {
 
-  document.getElementById("total-os").innerText =
-    orders.length;
+  const total = orders.length;
+  const open = orders.filter(o => o.status === "Aberto").length;
+  const progress = orders.filter(o => o.status === "Em andamento").length;
+  const done = orders.filter(o => o.status === "Finalizado").length;
 
-  document.getElementById("open-os").innerText =
-    orders.filter(
-      order => order.status === "Aberto"
-    ).length;
-
-  document.getElementById("progress-os").innerText =
-    orders.filter(
-      order => order.status === "Em andamento"
-    ).length;
-
-  document.getElementById("done-os").innerText =
-    orders.filter(
-      order => order.status === "Finalizado"
-    ).length;
+  document.getElementById("total-os").innerText = total;
+  document.getElementById("open-os").innerText = open;
+  document.getElementById("progress-os").innerText = progress;
+  document.getElementById("done-os").innerText = done;
 }
 
+// 📄 Renderizar tabela
 function renderOrders(filter = "") {
 
   ordersList.innerHTML = "";
 
+  const f = filter.toLowerCase();
+
   const filteredOrders = orders.filter(order =>
-    order.cliente.toLowerCase().includes(filter.toLowerCase()) ||
-    order.equipamento.toLowerCase().includes(filter.toLowerCase())
+    (order.cliente || "").toLowerCase().includes(f) ||
+    (order.equipamento || "").toLowerCase().includes(f)
   );
 
   filteredOrders.forEach(order => {
@@ -53,23 +49,9 @@ function renderOrders(filter = "") {
       <td>${order.problema}</td>
       <td>${order.tecnico}</td>
       <td>${order.status}</td>
-
       <td>
-
-        <button
-          class="action-btn edit"
-          onclick="editOrder(${order.id})"
-        >
-          Editar
-        </button>
-
-        <button
-          class="action-btn delete"
-          onclick="deleteOrder(${order.id})"
-        >
-          Excluir
-        </button>
-
+        <button class="action-btn edit" onclick="editOrder(${order.id})">Editar</button>
+        <button class="action-btn delete" onclick="deleteOrder(${order.id})">Excluir</button>
       </td>
     `;
 
@@ -79,16 +61,16 @@ function renderOrders(filter = "") {
   updateDashboard();
 }
 
+// ➕ Criar ordem
 form.addEventListener("submit", (e) => {
-
   e.preventDefault();
 
   const order = {
     id: Date.now(),
-    cliente: document.getElementById("cliente").value,
-    equipamento: document.getElementById("equipamento").value,
-    problema: document.getElementById("problema").value,
-    tecnico: document.getElementById("tecnico").value,
+    cliente: document.getElementById("cliente").value.trim(),
+    equipamento: document.getElementById("equipamento").value.trim(),
+    problema: document.getElementById("problema").value.trim(),
+    tecnico: document.getElementById("tecnico").value.trim(),
     status: document.getElementById("status").value
   };
 
@@ -100,44 +82,34 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
+// ❌ Deletar ordem
 function deleteOrder(id) {
-
   orders = orders.filter(order => order.id !== id);
-
   saveOrders();
   renderOrders();
 }
 
+// ✏️ Editar ordem (com proteção contra cancelamento)
 function editOrder(id) {
 
-  const order = orders.find(
-    order => order.id === id
-  );
+  const order = orders.find(o => o.id === id);
 
-  const cliente = prompt(
-    "Editar cliente:",
-    order.cliente
-  );
+  if (!order) return;
 
-  const equipamento = prompt(
-    "Editar equipamento:",
-    order.equipamento
-  );
+  const cliente = prompt("Editar cliente:", order.cliente);
+  if (cliente === null) return;
 
-  const problema = prompt(
-    "Editar problema:",
-    order.problema
-  );
+  const equipamento = prompt("Editar equipamento:", order.equipamento);
+  if (equipamento === null) return;
 
-  const tecnico = prompt(
-    "Editar técnico:",
-    order.tecnico
-  );
+  const problema = prompt("Editar problema:", order.problema);
+  if (problema === null) return;
 
-  const status = prompt(
-    "Editar status:",
-    order.status
-  );
+  const tecnico = prompt("Editar técnico:", order.tecnico);
+  if (tecnico === null) return;
+
+  const status = prompt("Editar status:", order.status);
+  if (status === null) return;
 
   order.cliente = cliente;
   order.equipamento = equipamento;
@@ -149,8 +121,12 @@ function editOrder(id) {
   renderOrders();
 }
 
+// 🔎 Busca
 searchInput.addEventListener("input", (e) => {
   renderOrders(e.target.value);
 });
 
-renderOrders();
+// 🚀 Inicialização segura
+window.onload = () => {
+  renderOrders();
+};
