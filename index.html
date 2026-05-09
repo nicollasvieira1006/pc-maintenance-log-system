@@ -1,43 +1,141 @@
-<DOCTYPE html>
+# index.html
+
+```html
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Maintenance Log System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>PC Maintenance Log System</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Maintenance Log System</title>
 
-    <form id="form">
-        <input type="text" id="computer" placeholder="Nome do computador" required>
-        <input type="text" id="service" placeholder="Serviço realizado" required>
-        <input type="date" id="date" required>
-        <select id="status" required>
-            <option value="">Selecione o status</option>
-            <option value="Em andamento">Em andamento</option>
-            <option value="Concluído">Concluído</option>
-        </select>
-        <button type="submit">Adicionar</button>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🖥️ PC Maintenance Log System</h1>
+    <p>Sistema de Ordem de Serviço</p>
+  </header>
+
+  <section class="dashboard">
+
+    <div class="card">
+      <h2 id="total-os">0</h2>
+      <span>Total de OS</span>
+    </div>
+
+    <div class="card open">
+      <h2 id="open-os">0</h2>
+      <span>Abertas</span>
+    </div>
+
+    <div class="card progress">
+      <h2 id="progress-os">0</h2>
+      <span>Em andamento</span>
+    </div>
+
+    <div class="card done">
+      <h2 id="done-os">0</h2>
+      <span>Finalizadas</span>
+    </div>
+
+  </section>
+
+  <section class="form-section">
+
+    <h2>Nova Ordem de Serviço</h2>
+
+    <form id="os-form">
+
+      <input
+        type="text"
+        id="cliente"
+        placeholder="Cliente"
+        required
+      >
+
+      <input
+        type="text"
+        id="equipamento"
+        placeholder="Equipamento"
+        required
+      >
+
+      <textarea
+        id="problema"
+        placeholder="Problema relatado"
+        required
+      ></textarea>
+
+      <input
+        type="text"
+        id="tecnico"
+        placeholder="Técnico responsável"
+        required
+      >
+
+      <select id="status">
+
+        <option value="Aberto">
+          Aberto
+        </option>
+
+        <option value="Em andamento">
+          Em andamento
+        </option>
+
+        <option value="Finalizado">
+          Finalizado
+        </option>
+
+      </select>
+
+      <button type="submit">
+        Criar Ordem
+      </button>
+
     </form>
 
-    <h2>Registros</h2>
-    <table id="records">
-        <thead>
-            <tr>
-                <th>Computador</th>
-                <th>Serviço</th>
-                <th>Data</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Registros aparecerão aqui -->
-        </tbody>
+  </section>
+
+  <section class="search-section">
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Pesquisar ordem..."
+    >
+
+  </section>
+
+  <section class="table-section">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Equipamento</th>
+          <th>Problema</th>
+          <th>Técnico</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="orders-list"></tbody>
+
     </table>
 
-    <script src="script.js"></script>
+  </section>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
+```
 
