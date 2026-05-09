@@ -1,4 +1,4 @@
-script.js
+
 const form = document.getElementById("os-form");
 const ordersList = document.getElementById("orders-list");
 const searchInput = document.getElementById("search");
