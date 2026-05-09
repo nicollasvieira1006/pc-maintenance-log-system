@@ -1,66 +1,107 @@
-# 💻 PC Maintenance Log System
+# PC Maintenance Log System V2🖥️
 
-Um aplicativo web interativo para **registrar e acompanhar manutenções de computadores**. Ideal para técnicos ou entusiastas que querem organizar o histórico de serviços de forma prática e moderna.
+Sistema web para gerenciamento de Ordens de Serviço desenvolvido com HTML, CSS e JavaScript.
 
----
-
-## 📝 Descrição do Projeto
-
-O **PC Maintenance Log System** permite que você:
-
-- Adicione novos registros de manutenção de computadores;  
-- Edite ou exclua registros existentes;  
-- Visualize o histórico completo de serviços;  
-- Filtre e destaque novos registros com animações;  
-- Tenha uma interface responsiva e agradável, pronta para qualquer dispositivo.
-
-O projeto é focado em **aprendizado de front-end, interatividade e usabilidade**.
-
----
-
-## 💻 Tecnologias Utilizadas
-
-- **HTML5** – Estrutura do aplicativo  
-- **CSS3** – Estilização, responsividade e animações  
-- **JavaScript** – Funcionalidades e animações dinâmicas  
-- **LocalStorage** – Armazenamento local de dados no navegador  
-
----
-
-## 🎯 Objetivo
-
-Demonstrar habilidades em:
-
-- Desenvolvimento front-end moderno;  
-- Manipulação de DOM e eventos com JavaScript;  
-- Implementação de animações CSS e JS;  
-- Criação de aplicações interativas e responsivas;  
-- Boas práticas de organização de código e UX.
+Projeto focado em praticar desenvolvimento frontend, manipulação de dados e criação de sistemas úteis para manutenção e suporte técnico.
 
 ---
 
 ## 🚀 Funcionalidades
 
-1. **Adicionar novo registro** – Formulário intuitivo para cadastrar serviços.  
-2. **Excluir registro** – Remoção com animação suave de saída.  
-3. **Visualizar histórico completo** – Tabela dinâmica com registros armazenados no navegador.  
-4. **Destaque de novos registros** – Animação de destaque ao adicionar um registro.  
-5. **Interação e hover effects** – Feedback visual para botões e linhas da tabela.  
+✅ Criar Ordens de Serviço
+✅ Editar Ordens
+✅ Excluir Ordens
+✅ Dashboard interativo
+✅ Pesquisa em tempo real
+✅ Status de atendimento
+✅ Armazenamento local com LocalStorage
+✅ Interface responsiva
+✅ Layout moderno em Dark Mode
 
 ---
 
-## 📸 Screenshots (Exemplo)
+## 📊 Dashboard
 
-**Tela principal com formulário e tabela de registros:**  
-<img width="1302" height="379" alt="image" src="https://github.com/user-attachments/assets/11d65a86-8772-4ef4-b64a-88ab74792568" />
+O sistema possui indicadores em tempo real:
 
+* Total de Ordens
+* Ordens Abertas
+* Em andamento
+* Finalizadas
 
 ---
 
-## ⚙️ Como Executar
+## 💻 Tecnologias utilizadas
 
-1. Clone o repositório:  
-```bash
-git clone https://nicollasvieira1006.github.io/pc-maintenance-log-system/
+* HTML5
+* CSS3
+* JavaScript
+* LocalStorage
 
+---
 
+## 🎨 Interface
+
+* Design moderno
+* Cards interativos
+* Tabela responsiva
+* Dashboard dinâmico
+* Sistema totalmente funcional no navegador
+
+---
+
+## 📚 Objetivo do projeto
+
+Projeto criado para desenvolver conhecimentos em:
+
+* CRUD
+* Frontend
+* Organização de sistemas
+* Manipulação do DOM
+* Persistência de dados
+* Estruturação de aplicações web
+
+---
+
+## ▶️ Como executar
+
+Clone o repositório:
+
+```bash id="0uz1tm"
+git clone https://github.com/nicollasvieira1006/pc-maintenance-log-system.git
+```
+
+Depois abra:
+
+```text id="fmnv4h"
+index.html
+```
+
+---
+
+## 🔥 Próximas melhorias
+
+* Sistema de login
+* Exportação em PDF
+* Exportação em Excel
+* Modal de edição
+* Upload de imagens
+* Firebase
+* Banco de dados real
+* Relatórios técnicos
+* Geração automática de OS
+
+---
+
+## 📸 Preview
+
+Sistema web responsivo para gerenciamento de manutenção e ordens de serviço.
+
+---
+
+## 👨‍💻 Autor
+
+Nicollas Alves
+
+📍 São Paulo - SP
+🎯 Em transição para Desenvolvimento de Software
